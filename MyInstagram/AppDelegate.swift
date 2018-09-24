@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
-                configuration.applicationId = "impactwhit-insta"
-                configuration.clientKey = nil  // set to nil assuming you have not set clientKey
+                configuration.applicationId = "insta"
+                configuration.clientKey = "impactwhit"
                 configuration.server = "https://impactwhit-insta.herokuapp.com/parse"
             })
         )
