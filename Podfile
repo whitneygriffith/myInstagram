@@ -4,9 +4,12 @@
 target 'MyInstagram' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'Parse'
-
   # Pods for MyInstagram
+  pod 'Parse'
+  pod 'Alamofire'
+  pod 'AlamofireImage', '~> 3.4'
+
+  
 
   target 'MyInstagramTests' do
     inherit! :search_paths

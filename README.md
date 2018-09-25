@@ -2,13 +2,13 @@
 
 **MyInstagram** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **6** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication (+1pt)
+- [x] User can sign up to create a new account using Parse authentication (+1pt)
 - [ ] User can log in and log out of his or her account (+1pt)
 - [ ] The current signed in user is persisted across app restarts (+1pt)
 - [ ] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
@@ -80,14 +80,3 @@ Describe any challenges encountered while building the app.
     limitations under the License.
     
     
-    
-    curl -X POST -H "X-Parse-Application-Id: impactwhit-insta" -H "X-Parse-Master-Key: abc" \
--H "Content-Type: application/json" \
--d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
-https://impactwhit-insta.herokuapp.com/parse/classes/GameScore
-
-curl -X GET -H "X-Parse-Application-Id: impactwhit-insta" -H "X-Parse-Master-Key: impactwhit"  \
-https://impactwhit-insta.herokuapp.com/parse/classes/GameScore
-
-npm install -g parse-dashboard
-parse-dashboard --appId impactwhit-insta --masterKey impactwhit --serverURL "https://impactwhit-insta.herokuapp.com/parse"
