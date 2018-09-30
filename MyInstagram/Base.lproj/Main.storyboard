@@ -92,7 +92,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kc0-7J-ZtY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="DKK-n3-VNk"/>
+                    <navigationItem key="navigationItem" title="Profile" id="DKK-n3-VNk">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="AIT-Rw-6A6">
+                            <connections>
+                                <action selector="logoutButton:" destination="gbD-36-h3U" id="3CY-5S-Edz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3W-jn-vC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +167,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-OD-0fN">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-OD-0fN" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="77" width="371" height="323"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -186,16 +192,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WLn-De-P2R">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="favor-icon" translatesAutoresizingMaskIntoConstraints="NO" id="WLn-De-P2R">
                                                     <rect key="frame" x="20" y="404" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hg3-22-mdg">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comment-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Hg3-22-mdg">
                                                     <rect key="frame" x="78" y="406" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OJf-nY-J3j">
-                                                    <rect key="frame" x="136" y="406" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -203,12 +205,11 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="7LV-XF-QkV" id="ewL-0Q-fL8"/>
                                             <outlet property="commentImage" destination="Hg3-22-mdg" id="ivC-mD-pss"/>
-                                            <outlet property="likeImage" destination="WLn-De-P2R" id="XLO-xY-KPb"/>
+                                            <outlet property="likesImage" destination="WLn-De-P2R" id="rA8-EV-8Vz"/>
                                             <outlet property="locationLabel" destination="acF-0w-iN7" id="tFC-L7-AuF"/>
                                             <outlet property="numberLikesLabel" destination="2lD-G3-tRf" id="4x6-d5-MSd"/>
-                                            <outlet property="postImageView" destination="Jmf-OD-0fN" id="HEf-Oh-mLv"/>
+                                            <outlet property="postImageView" destination="Jmf-OD-0fN" id="QtR-e5-lLW"/>
                                             <outlet property="profileImageView" destination="INC-cD-dYG" id="7nb-nb-bww"/>
-                                            <outlet property="shareImage" destination="OJf-nY-J3j" id="eCL-py-nU2"/>
                                             <outlet property="usernameCaptionLabel" destination="zss-eF-0aQ" id="KRx-7c-pwz"/>
                                             <outlet property="usernameLabel" destination="e6t-Se-4r6" id="pFr-u3-mff"/>
                                         </connections>
@@ -276,6 +277,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="comment-icon" width="30" height="30"/>
+        <image name="favor-icon" width="30" height="30"/>
         <image name="feed_tab" width="25" height="25"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>

@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
 import Parse
 
-class Post: PFObject {
+class Post: PFObject,PFSubclassing {
 
     static func parseClassName() -> String {
         return "Post"
@@ -18,7 +17,7 @@ class Post: PFObject {
     
     @NSManaged var media : PFFile
     @NSManaged var author: PFUser
-    @NSManaged var caption: String?
+    @NSManaged var caption: String
     @NSManaged var likesCount: Int
     @NSManaged var commentsCount: Int
     
@@ -30,6 +29,11 @@ class Post: PFObject {
     
     @NSManaged var authorUsername: String
     @NSManaged var authorProfileImageFile : PFFile
+    /*
+    class func parseClassName() -> String {
+        return "Post"
+    }
+    */
     
     // for printing purpose only
     var raw_post: PFObject?
@@ -54,24 +58,23 @@ class Post: PFObject {
         return newImage!
     }
     
-    
-    class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
-        // resize the image
+    class func postUserImage(image: UIImage!, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
+ 
+        let post = Post()
+        //resize image
         let newSize = CGSize(width: 200, height: 300)
         let resizedImage = Post.resize(image: image!, newSize: newSize)
-        
-        // Create Parse object PFObject
-        let post = Post()
-        
-        // Add relevant fields to the object
+
         post.media = getPFFileFromImage(image: resizedImage)! // PFFile column type
         post.author = PFUser.current()! // Pointer column type that points to PFUser
-        post.caption = caption
+        post.caption = caption!
         post.likesCount = 0
         post.commentsCount = 0
         
+
         post.saveInBackground(block: completion)
     }
+
     
     class func getPFFileFromImage(image: UIImage?) -> PFFile? {
         // check if image is not nil
