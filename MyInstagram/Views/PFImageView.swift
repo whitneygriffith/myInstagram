@@ -1,44 +1,21 @@
 //
-//  PostCollectionViewCell.swift
+//  PFImageView.swift
 //  MyInstagram
 //
-//  Created by Whitney Griffith on 9/24/18.
+//  Created by Whitney Griffith on 9/25/18.
 //  Copyright © 2018 Whitney Griffith. All rights reserved.
 //
 
 import UIKit
+
 import Parse
 
-class PostCollectionViewCell: UICollectionViewCell {
-    
+class PFImageView: UIImageView {
 
-    
-    @IBOutlet weak var profileImageView: UIImageView!
-    
-    @IBOutlet weak var postImageView: UIImageView!
-    
-    
-    @IBOutlet weak var usernameLabel: UILabel!
-    
-    @IBOutlet weak var locationLabel: UILabel!
-    
-    
-    @IBOutlet weak var likeImage: UIImageView!
-    
-    @IBOutlet weak var commentImage: UIImageView!
-    
-    @IBOutlet weak var shareImage: UIImageView!
-    
-    
-    @IBOutlet weak var numberLikesLabel: UILabel!
-    
-    @IBOutlet weak var usernameCaptionLabel: UILabel!
-    
-    @IBOutlet weak var captionLabel: UILabel!
-    
-    var post: PFObject! {
+    /*
+    var image: PFObject! {
         didSet {
-           // profileImageView.image = post["media"] as? PFFile
+            //profileImageView.file = post["media"] as? PFFile
             //profileImageView.loadInBackground()
             
             usernameLabel.text = (post["author"] as? PFUser)?.username
@@ -55,6 +32,11 @@ class PostCollectionViewCell: UICollectionViewCell {
             numberLikesLabel.text = post["likesCount"] as? String
             captionLabel.text = post["caption"] as? String
         }
+ 
+        
+        
     }
     
+ */
+
 }

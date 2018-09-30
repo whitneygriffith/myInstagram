@@ -17,10 +17,14 @@ class HomeViewController: UIViewController {
    // var posts : [Post] = []
     var raw_posts: [PFObject] = []
     
+    @IBAction func logoutButton(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("UserDidLogOut"), object: nil)
+    }
     
     @IBOutlet weak var FeedsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }

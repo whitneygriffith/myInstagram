@@ -8,6 +8,7 @@ target 'MyInstagram' do
   pod 'Parse'
   pod 'Alamofire'
   pod 'AlamofireImage', '~> 3.4'
+  #pod 'PKHUD', '~> 5.0'
 
   
 

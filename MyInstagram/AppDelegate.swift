@@ -29,18 +29,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if PFUser.current() != nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // view controller currently being set in Storyboard as default will be overridden
+
             window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController")
         }
         
         // handling logout
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "UserDidLogOut" ), object: nil, queue: OperationQueue.main) {(NSNotification)->Void in //the logout button information is received here
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "UserDidLogOut" ), object: nil, queue: OperationQueue.main) {(Notification)->Void in
             
-            print("Inside the change app delegate")
-            let storyBoard = UIStoryboard(name : "Main", bundle: nil)
-            let viewController = storyBoard.instantiateInitialViewController()
-            self.window?.rootViewController = viewController
+            print("logging out")
+            
+            PFUser.logOutInBackground(block: { (error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    // Load and show the login view controller
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                    self.window?.rootViewController = loginViewController
+                }
+            })
         }
     
+
         return true
     }
     
