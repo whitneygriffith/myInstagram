@@ -45,13 +45,18 @@ class NewPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
 
     
     
-    private func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // Get the image captured by the UIImagePickerController
-        let newImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        newPhoto.image = newImage
-    
+        guard let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+
+        
+        
+      // Do something with the images (based on your use case)
+        newPhoto.image = editedImage
+        
         dismiss(animated: true, completion: nil)
     }
 
@@ -59,6 +64,10 @@ class NewPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         if (newPhoto.image != nil) {
             Post.postUserImage(image: newPhoto.image, withCaption: caption.text, withCompletion: nil)
             _ = navigationController?.popViewController(animated: true)
+            print("post success")
+        }
+        else {
+            print("Photo is not set")
         }
     }
     
